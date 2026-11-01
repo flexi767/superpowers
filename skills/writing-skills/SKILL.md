@@ -5,6 +5,8 @@ description: Use when creating new skills, editing existing skills, or verifying
 
 # Writing Skills
 
+> **Host rules (agent-skills adaptation).** Running pressure scenarios or micro-tests through subagents is delegation: do it only when the user has asked for it, one sample at a time, never in parallel. Without that, write the skill, test it by reading it against the failure cases, and say which scenarios were not run.
+
 ## Overview
 
 **Writing skills IS Test-Driven Development applied to process documentation.**
@@ -15,7 +17,7 @@ You write test cases (pressure scenarios with subagents), watch them fail (basel
 
 **Core principle:** If you didn't watch an agent fail without the skill, you don't know if the skill teaches the right thing.
 
-**REQUIRED BACKGROUND:** You MUST understand superpowers:test-driven-development before using this skill. That skill defines the fundamental RED-GREEN-REFACTOR cycle. This skill adapts TDD to documentation.
+**REQUIRED BACKGROUND:** You MUST understand test-driven-development before using this skill. That skill defines the fundamental RED-GREEN-REFACTOR cycle. This skill adapts TDD to documentation.
 
 **Official guidance:** For Anthropic's official skill authoring best practices, see references/anthropic-best-practices.md. This document provides additional patterns and guidelines that complement the TDD-focused approach in this skill.
 
@@ -179,7 +181,7 @@ Edit skill without testing? Same violation.
 - Don't "adapt" while running tests
 - Delete means delete
 
-**REQUIRED BACKGROUND:** The superpowers:test-driven-development skill explains why this matters. Same principles apply to documentation.
+**REQUIRED BACKGROUND:** The test-driven-development skill explains why this matters. Same principles apply to documentation.
 
 ## Testing All Skill Types
 

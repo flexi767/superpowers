@@ -5,6 +5,8 @@ description: Use when implementation is complete, all tests pass, and you need t
 
 # Finishing a Development Branch
 
+> **Host rules (agent-skills adaptation).** The project's own instructions (CLAUDE.md, AGENTS.md) win over this skill. Where they set a verification scope (targeted tests first, the full suite only as a deliberate final gate, one heavy command at a time), follow that scope instead of running the whole suite by reflex. Where they set an integration policy (for example: commit, merge to main and push automatically once checks pass), follow that policy instead of presenting the Step 4 menu.
+
 ## Overview
 
 **Core principle:** Verify tests → Detect environment → Present options → Execute choice → Clean up.

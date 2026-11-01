@@ -5,6 +5,8 @@ description: Use when implementing any feature or bugfix, before writing impleme
 
 # Test-Driven Development (TDD)
 
+> **Host rules (agent-skills adaptation).** The project's own instructions (CLAUDE.md, AGENTS.md) win over this skill. Where they set a verification scope (targeted tests first, the full suite only as a deliberate final gate, one heavy command at a time), follow that scope instead of running the whole suite by reflex.
+
 ## Overview
 
 Write the test first. Watch it fail. Write minimal code to pass.

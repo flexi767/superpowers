@@ -5,14 +5,15 @@ description: Use when completing tasks, implementing major features, or before m
 
 # Requesting Code Review
 
-Dispatch a code reviewer subagent to catch issues before they cascade. The reviewer gets precisely crafted context for evaluation — never your session's history.
+> **Host rules (agent-skills adaptation).** Do not spawn a reviewer subagent unless the user has asked for delegation. By default, review the range yourself: run the `git diff` commands from [code-reviewer.md](code-reviewer.md) and work through its checklist and output format in this session.
+
+Review the work against its requirements to catch issues before they cascade. When the user has asked for delegation, a reviewer subagent gets precisely crafted context for evaluation — never your session's history.
 
 **Core principle:** Review early, review often.
 
 ## When to Request Review
 
 **Mandatory:**
-- After each task in subagent-driven development
 - After completing major feature
 - Before merge to main
 
@@ -29,9 +30,9 @@ BASE_SHA=$(git rev-parse HEAD~1)  # or: git merge-base origin/main HEAD
 HEAD_SHA=$(git rev-parse HEAD)
 ```
 
-**2. Dispatch code reviewer subagent:**
+**2. Review the range (yourself by default; a `general-purpose` subagent only when the user asked for delegation):**
 
-Dispatch a `general-purpose` subagent, filling the template at [code-reviewer.md](code-reviewer.md)
+Use the template at [code-reviewer.md](code-reviewer.md)
 
 **Placeholders:**
 - `{DESCRIPTION}` - Brief summary of what you built
@@ -76,7 +77,7 @@ You: [Fix progress indicators]
 
 | Excuse | Reality |
 |--------|---------|
-| "I'll just review the diff myself instead of dispatching a reviewer" | You're the coordinator — reviewing the diff inline burns the context window you need to keep driving the work. Dispatch a reviewer subagent: the diff and the evaluation live in its context, and only the findings come back to you. |
+| "I'll skip the checklist because I wrote the code" | Reviewing your own diff is the default here, so do it properly: run the diff and go through every checklist section. A subagent reviewer is for when the user asks for delegation. |
 | "The reviewer needs my whole session history to understand the change" | Hand it precisely crafted context, never your session's history. That keeps the reviewer on the work product, not your thought process. |
 
 ## Red Flags

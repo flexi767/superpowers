@@ -5,6 +5,8 @@ description: Use when encountering any bug, test failure, or unexpected behavior
 
 # Systematic Debugging
 
+> **Host rules (agent-skills adaptation).** The project's own instructions (CLAUDE.md, AGENTS.md) win over this skill. Where they set a verification scope (targeted tests first, the full suite only as a deliberate final gate, one heavy command at a time), follow that scope instead of running the whole suite by reflex. `find-polluter.sh` runs the test command once per test file, so treat it as a heavy job and ask before running it in a large repo.
+
 ## Overview
 
 **Core principle:** ALWAYS find root cause before attempting fixes. Symptom fixes are failure.
@@ -174,7 +176,7 @@ You MUST complete each phase before proceeding to the next.
    - Automated test if possible
    - One-off test script if no framework
    - MUST have before fixing
-   - Use the `superpowers:test-driven-development` skill for writing proper failing tests
+   - Use the `test-driven-development` skill for writing proper failing tests
 
 2. **Implement Single Fix**
    - Address the root cause identified
@@ -186,7 +188,7 @@ You MUST complete each phase before proceeding to the next.
    - Test passes now?
    - No other tests broken?
    - Issue actually resolved?
-   - Use the `superpowers:verification-before-completion` skill before claiming success
+   - Use the `verification-before-completion` skill before claiming success
 
 4. **If Fix Doesn't Work**
    - STOP
